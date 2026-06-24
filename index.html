@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple, clean, and modern rule-based Sentiment Analyzer. Enter your sentence or paragraph to classify it as positive, negative, or neutral.">
+    <title>Sentiment Analyzer | Explore Your Words</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <!-- Main Card -->
+        <div class="card analyzer-card">
+            <header class="app-header">
+                <div class="logo-container">
+                    <span class="logo-emoji">📊</span>
+                </div>
+                <h1>Sentiment Analyzer</h1>
+                <p class="subtitle">Enter text below to analyze its emotional tone instantly.</p>
+            </header>
+
+            <!-- Input Section -->
+            <section class="input-section">
+                <label for="text-input" class="sr-only">Enter text here</label>
+                <div class="textarea-wrapper">
+                    <textarea 
+                        id="text-input" 
+                        placeholder="Type or paste your sentence, paragraph, or review here... (e.g., 'I love this amazing tool! It is fantastic, though the loading speed is a bit bad.')"
+                        maxlength="1000"
+                    ></textarea>
+                    <div class="textarea-footer">
+                        <span id="char-counter">0 / 1000 characters</span>
+                        <button id="clear-btn" type="button" class="text-btn" aria-label="Clear text">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Error Container -->
+                <div id="error-message" class="error-toast" aria-live="polite">
+                    <span class="error-icon">⚠️</span>
+                    <span id="error-text">Please enter some text to analyze.</span>
+                </div>
+
+                <!-- Action Button -->
+                <button id="analyze-btn" class="primary-btn">
+                    <span class="btn-text">Analyze Sentiment</span>
+                    <span class="btn-icon">⚡</span>
+                </button>
+            </section>
+
+            <!-- Result Card Section (Hidden by default, shown when analyzed) -->
+            <section id="result-section" class="result-section hidden">
+                <hr class="divider">
+                <h2>Analysis Results</h2>
+                
+                <div id="result-card" class="result-card">
+                    <div class="result-main">
+                        <div class="result-emoji-container">
+                            <span id="result-emoji" class="result-emoji">😐</span>
+                        </div>
+                        <div class="result-details">
+                            <div class="sentiment-label-wrapper">
+                                <span class="label-heading">Sentiment</span>
+                                <span id="result-label" class="sentiment-label">Neutral</span>
+                            </div>
+                            <div class="sentiment-score-wrapper">
+                                <span class="label-heading">Sentiment Score</span>
+                                <span id="result-score" class="sentiment-score">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Sentiment Scale -->
+                    <div class="sentiment-bar-wrapper">
+                        <div class="bar-labels">
+                            <span>Negative</span>
+                            <span>Neutral</span>
+                            <span>Positive</span>
+                        </div>
+                        <div class="bar-track">
+                            <div id="sentiment-indicator" class="bar-indicator"></div>
+                        </div>
+                    </div>
+
+                    <!-- Word Matches Breakdown -->
+                    <div class="words-breakdown">
+                        <div class="word-group positive-group">
+                            <h3>Positive Words Found (<span id="pos-count">0</span>)</h3>
+                            <div id="pos-word-list" class="word-tags">None</div>
+                        </div>
+                        <div class="word-group negative-group">
+                            <h3>Negative Words Found (<span id="neg-count">0</span>)</h3>
+                            <div id="neg-word-list" class="word-tags">None</div>
+                        </div>
+                    </div>
+
+                    <!-- Highlighted Text Preview -->
+                    <div class="text-preview-wrapper">
+                        <h3>Highlighted Preview</h3>
+                        <div id="text-highlighted" class="text-highlighted"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>Built with HTML, CSS, and Vanilla JavaScript. &copy; 2026</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
